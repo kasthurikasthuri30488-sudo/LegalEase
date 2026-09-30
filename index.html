@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LegalEase - AI Legal Document Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">
+            ⚖️ Legal<span>Ease</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#generator">Generator</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="nav-btn" onclick="scrollToGenerator()">
+            Generate Document
+        </button>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✨ AI-Powered Legal Assistance
+            </div>
+
+            <h1>
+                Create Legal Documents
+                <span>Smarter & Faster</span>
+            </h1>
+
+            <p>
+                LegalEase helps you generate structured legal document
+                drafts using Artificial Intelligence.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="scrollToGenerator()">
+                    Generate Document →
+                </button>
+
+                <button class="secondary-btn" onclick="showAbout()">
+                    Learn More
+                </button>
+            </div>
+
+            <div class="stats">
+                <div>
+                    <h3>10+</h3>
+                    <p>Document Types</p>
+                </div>
+
+                <div>
+                    <h3>AI</h3>
+                    <p>Powered</p>
+                </div>
+
+                <div>
+                    <h3>24/7</h3>
+                    <p>Available</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+
+            <div class="card-top">
+                <span>AI Document Assistant</span>
+                <span class="online">● Online</span>
+            </div>
+
+            <div class="ai-icon">
+                ⚖️
+            </div>
+
+            <h2>What document do you need?</h2>
+
+            <p>
+                Select a document type and provide your details.
+            </p>
+
+            <div class="mini-option">
+                📄 Agreement
+            </div>
+
+            <div class="mini-option">
+                📝 Legal Notice
+            </div>
+
+            <div class="mini-option">
+                📋 Declaration
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+
+        <div class="section-title">
+            <span>WHY LEGALEASE?</span>
+            <h2>Simple. Smart. Structured.</h2>
+
+            <p>
+                Everything you need to create your first legal document draft.
+            </p>
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered</h3>
+                <p>
+                    Generate structured document drafts using AI assistance.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Generation</h3>
+                <p>
+                    Save time by creating your document draft in seconds.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy Focused</h3>
+                <p>
+                    Your information should be handled securely and responsibly.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <h3>Easy Editing</h3>
+                <p>
+                    Review and edit the generated document before using it.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GENERATOR -->
+    <section class="generator-section" id="generator">
+
+        <div class="section-title">
+            <span>DOCUMENT GENERATOR</span>
+
+            <h2>Create Your Legal Document</h2>
+
+            <p>
+                Fill in the details below to generate your document draft.
+            </p>
+        </div>
+
+
+        <div class="generator-box">
+
+            <div class="form-area">
+
+                <label>Document Type</label>
+
+                <select id="documentType">
+
+                    <option value="">
+                        Select Document Type
+                    </option>
+
+                    <option value="Agreement">
+                        Agreement
+                    </option>
+
+                    <option value="Legal Notice">
+                        Legal Notice
+                    </option>
+
+                    <option value="Declaration">
+                        Declaration
+                    </option>
+
+                    <option value="Rental Agreement">
+                        Rental Agreement
+                    </option>
+
+                    <option value="Business Letter">
+                        Business Letter
+                    </option>
+
+                    <option value="Service Agreement">
+                        Service Agreement
+                    </option>
+
+                </select>
+
+
+                <label>Your Name</label>
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter your name"
+                >
+
+
+                <label>Other Party Name</label>
+
+                <input
+                    type="text"
+                    id="partyName"
+                    placeholder="Enter other party name"
+                >
+
+
+                <label>Purpose / Description</label>
+
+                <textarea
+                    id="purpose"
+                    placeholder="Describe the purpose of the document..."
+                ></textarea>
+
+
+                <label>Date</label>
+
+                <input
+                    type="date"
+                    id="documentDate"
+                >
+
+
+                <button
+                    class="generate-btn"
+                    onclick="generateDocument()"
+                >
+                    ✨ Generate Document
+                </button>
+
+            </div>
+
+
+            <!-- OUTPUT -->
+            <div class="output-area">
+
+                <div class="output-header">
+                    <h3>Generated Document</h3>
+
+                    <button onclick="downloadDocument()">
+                        ⬇ Download
+                    </button>
+                </div>
+
+                <div id="documentOutput" class="document-output">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            📄
+                        </div>
+
+                        <h3>Your document will appear here</h3>
+
+                        <p>
+                            Fill the form and click
+                            <b>Generate Document</b>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <div>
+                <span>ABOUT LEGALEASE</span>
+
+                <h2>
+                    Making document drafting
+                    easier with AI.
+                </h2>
+            </div>
+
+            <p>
+                LegalEase is an AI-assisted legal document drafting
+                platform designed to simplify the creation of structured
+                legal-document drafts. Users provide basic information,
+                select a document type, and receive an editable draft.
+            </p>
+
+        </div>
+
+        <div class="warning">
+            ⚠️ <b>Important:</b>
+            LegalEase provides AI-assisted drafts and does not replace
+            professional legal advice. Documents should be reviewed
+            before actual use.
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">
+            ⚖️ Legal<span>Ease</span>
+        </div>
+
+        <p>
+            AI-Powered Legal Document Generator
+        </p>
+
+        <p>
+            © 2026 LegalEase. Academic Project.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
